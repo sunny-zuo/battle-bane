@@ -15,3 +15,4 @@ Battle Bane is a top down multiplayer shooter game built for Adobe Flash (deskto
 - Uses mesmotronic's [air-ane-fullscreen](https://github.com/mesmotronic/air-ane-fullscreen) ANE for full screen on Android
 - Uses hurlant's [AS3 Cryptography framework](http://crypto.hurlant.com/)
 - Uses worlize's websocket
+- Uses skyboy's SkyCollisionDetection for collision detection
