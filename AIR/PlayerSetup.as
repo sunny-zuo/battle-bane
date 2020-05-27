@@ -3,7 +3,6 @@
 	import flash.events.MouseEvent;
 	import flash.events.Event;
 	import flash.events.KeyboardEvent;
-	import flash.ui.Keyboard;
 
 	public class PlayerSetup extends MovieClip {
 

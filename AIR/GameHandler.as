@@ -20,7 +20,6 @@
 	import com.worlize.websocket.WebSocketEvent;
 	import com.worlize.websocket.WebSocketMessage;
 	import com.worlize.websocket.WebSocketErrorEvent;
-	import flash.events.IOErrorEvent;
 
 	public class GameHandler extends MovieClip {
 
