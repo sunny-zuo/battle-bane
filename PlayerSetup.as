@@ -3,6 +3,7 @@
 	import flash.events.MouseEvent;
 	import flash.events.Event;
 	import flash.events.KeyboardEvent;
+	import flash.ui.Keyboard;
 
 	public class PlayerSetup extends MovieClip {
 
@@ -33,11 +34,17 @@
 			this.enterBattleButton.addEventListener(MouseEvent.CLICK, enterBattle);
 			
 			this.usernameText.addEventListener(KeyboardEvent.KEY_UP, updateUsername);
+			this.serverText.addEventListener(KeyboardEvent.KEY_UP, updateIP);
 			this.addEventListener(Event.REMOVED_FROM_STAGE, cleanUp);
 		}
 		
 		private function updateUsername(event:KeyboardEvent):void {
 			Main.playerUsername = usernameText.text;
+			Main.updateData();
+		}
+		
+		private function updateIP(event:KeyboardEvent):void {
+			Main.serverIP = serverText.text;
 			Main.updateData();
 		}
 		private function updateDisplay():void {
@@ -49,6 +56,7 @@
 			this.reloadInfo.text = "Reload Speed: " + String(Main.playerReload.toFixed(0));
 			this.rangeInfo.text = "Range: " + String(Main.playerRange.toFixed(0));
 			usernameText.text = Main.saveData.data.playerUsername;
+			serverText.text = Main.saveData.data.serverIP;
 		}
 		
 		private function openSettings (event:MouseEvent):void {
@@ -79,6 +87,7 @@
 			this.settingsButton.removeEventListener(MouseEvent.CLICK, openSettings);
 			this.enterBattleButton.removeEventListener(MouseEvent.CLICK, enterBattle);
 			this.usernameText.removeEventListener(KeyboardEvent.KEY_DOWN, updateUsername);
+			this.serverText.removeEventListener(KeyboardEvent.KEY_UP, updateIP);
 			this.removeEventListener(Event.REMOVED_FROM_STAGE, cleanUp);
 		}
 		

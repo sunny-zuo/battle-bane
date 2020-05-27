@@ -20,6 +20,7 @@
 	import com.worlize.websocket.WebSocketEvent;
 	import com.worlize.websocket.WebSocketMessage;
 	import com.worlize.websocket.WebSocketErrorEvent;
+	import flash.events.IOErrorEvent;
 
 	public class GameHandler extends MovieClip {
 
@@ -118,7 +119,7 @@
 			addChild(bulletPath);
 
 			//creates new connection to websocket server
-			websocket = new WebSocket("ws://battle-bane.herokuapp.com", "*");
+			websocket = new WebSocket(Main.serverIP, "*");
 			websocket.addEventListener(WebSocketEvent.OPEN, onConnected);
 			websocket.addEventListener(WebSocketErrorEvent.CONNECTION_FAIL, handleConnectionFail);
 			websocket.connect();

@@ -8,14 +8,14 @@
 	import flash.display.Stage;
 	import flash.display.StageDisplayState;
 	import com.mesmotronic.ane.AndroidFullScreen;
-	import com.hurlant.crypto.symmetric.NullPad;
 
 	public class Main extends MovieClip {
 
 		//static vars
-		public static var gameVersion = "1.1.3";
+		public static var gameVersion = "1.1.4";
+		public static var serverIP = "ws://127.0.0.1:8080";
 
-		//shared object
+		//shared object to persist data across sessions
 		public static var saveData: SharedObject = SharedObject.getLocal("yI7QAeS6Zy");
 
 		//other classes
@@ -74,6 +74,7 @@
 			saveData.data.nameOfServer = nameOfServer;
 			saveData.data.privateServerEnabled = privateServerEnabled;
 			saveData.data.playerUsername = playerUsername;
+			saveData.data.serverIP = serverIP;
 
 			saveData.flush();
 		}
@@ -121,6 +122,12 @@
 				saveData.data.playerUsername = playerUsername;
 			} else {
 				playerUsername = saveData.data.playerUsername;
+			}
+			
+			if (saveData.data.serverIP == null) {
+				saveData.data.serverIP = serverIP;
+			} else {
+				serverIP = saveData.data.serverIP;
 			}
 
 			saveData.flush();
